@@ -1,13 +1,13 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <VersionPrefix>2.0.0</VersionPrefix>
+    <VersionPrefix>3.0.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
-    <Authors>RogueException</Authors>
+    <Authors>RogueException, lukepfeiffer10</Authors>
     <PackageTags>discord;discordapp;aspnetcore;authentication;security</PackageTags>
-    <PackageProjectUrl>https://github.com/RogueException/Discord.OAuth2</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/lukepfeiffer10/Discord.OAuth2</PackageProjectUrl>
     <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>git://github.com/RogueException/Discord.OAuth2</RepositoryUrl>
+    <RepositoryUrl>git://github.com/lukepfeiffer10/Discord.OAuth2</RepositoryUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(BuildNumber)' == '' ">
     <VersionSuffix Condition=" '$(VersionSuffix)' != ''">$(VersionSuffix)-dev</VersionSuffix>
