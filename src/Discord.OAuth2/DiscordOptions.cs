@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using System;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
@@ -15,6 +16,7 @@ namespace Discord.OAuth2
             AuthorizationEndpoint = DiscordDefaults.AuthorizationEndpoint;
             TokenEndpoint = DiscordDefaults.TokenEndpoint;
             UserInformationEndpoint = DiscordDefaults.UserInformationEndpoint;
+            Prompt = PromptTypes.Consent;
             Scope.Add("identify");
 
             ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id", ClaimValueTypes.UInteger64);
@@ -29,5 +31,26 @@ namespace Discord.OAuth2
         public string AppId { get => ClientId; set => ClientId = value; }        
         /// <summary> Gets or sets the Discord-assigned app secret. </summary>
         public string AppSecret { get => ClientSecret; set => ClientSecret = value; }
+
+        /// <summary>
+        /// Determines if the user gets prompted for authorization each time they get a token
+        /// </summary>
+        private PromptTypes _prompt;
+        public PromptTypes Prompt
+        {
+            get => _prompt;
+            set
+            {
+                AuthorizationEndpoint = $"{AuthorizationEndpoint.Replace($"?prompt={_prompt.ToString().ToLower()}", null)}?prompt={value.ToString().ToLower()}";
+                _prompt = value;
+            }
+        }
+
+
+        public enum PromptTypes
+        {
+            Consent,
+            None
+        }
     }
 }

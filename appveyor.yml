@@ -2,7 +2,7 @@ version: build-{build}
 branches:
   only:
   - master
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 nuget:
   disable_publish_on_pr: true
@@ -22,13 +22,4 @@ build_script:
 - ps: dotnet build Discord.OAuth2.sln -c Release /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
 after_build:
 - ps: dotnet pack "src\Discord.OAuth2\Discord.OAuth2.csproj" -c Release -o "../../artifacts" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
-- ps: Get-ChildItem artifacts\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
-
-deploy:
-- provider: NuGet
-  server: https://www.myget.org/F/rogueexception/api/v2/package
-  api_key:
-    secure: D+vW2O2LBf/iJb4f+q8fkyIW2VdIYIGxSYLWNrOD4BHlDBZQlJipDbNarWjUr2Kn
-  symbol_server: https://www.myget.org/F/rogueexception/symbols/api/v2/package
-  on:
-    branch: master
+- ps: Get-ChildItem C:\artifacts\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
