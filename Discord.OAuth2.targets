@@ -6,7 +6,7 @@
     <Authors>RogueException, lukepfeiffer10</Authors>
     <PackageTags>discord;discordapp;aspnetcore;authentication;security</PackageTags>
     <PackageProjectUrl>https://github.com/lukepfeiffer10/Discord.OAuth2</PackageProjectUrl>
-    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/lukepfeiffer10/Discord.OAuth2</RepositoryUrl>
   </PropertyGroup>
