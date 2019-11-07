@@ -22,7 +22,7 @@ build_script:
 - ps: dotnet build Discord.OAuth2.sln -c Release /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
 after_build:
 - ps: dotnet pack "src\Discord.OAuth2\Discord.OAuth2.csproj" -c Release -o "../../artifacts" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
-- ps: Get-ChildItem artifacts\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+- ps: Get-ChildItem C:\artifacts\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
 deploy:
 - provider: NuGet
