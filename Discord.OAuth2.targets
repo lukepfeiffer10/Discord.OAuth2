@@ -1,5 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <PackageId>Discord.OAuth2.AspNetCore</PackageId>
     <VersionPrefix>3.0.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>RogueException, lukepfeiffer10</Authors>
