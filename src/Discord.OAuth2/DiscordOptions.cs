@@ -41,7 +41,7 @@ namespace Discord.OAuth2
             get => _prompt;
             set
             {
-                AuthorizationEndpoint = $"{AuthorizationEndpoint.Replace($"?prompt={_prompt}", null)}?prompt={value}";
+                AuthorizationEndpoint = $"{AuthorizationEndpoint.Replace($"?prompt={_prompt.ToString().ToLower()}", null)}?prompt={value.ToString().ToLower()}";
                 _prompt = value;
             }
         }
